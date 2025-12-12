@@ -56,6 +56,23 @@ services:
     volumes:
       - "pgsql-db:/var/lib/postgresql/data"
 
+  phpmyadmin:
+    container_name: phpmyadmin
+    depends_on:
+      - traefik
+    environment:
+      PMA_HOSTS: "mariadb"
+      PMA_USER: "root"
+      UPLOAD_LIMIT: "1G"
+    image: phpmyadmin:latest
+    labels:
+      - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.localhost`)"
+    networks:
+      - dev-env
+    ports:
+      - "8001:80"
+    restart: always
+
 networks:
   dev-env:
     external: true
