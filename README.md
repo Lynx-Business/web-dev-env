@@ -41,6 +41,12 @@ Traefik is used to simplify access to services by allowing a per-project configu
 | User     | root                   |
 | Password | password               |
 
+### PhpMyAdmin
+
+| Name | Value                         |
+| ---- | ----------------------------- |
+| Url  | 'http://phpmyadmin.localhost' |
+
 ## Gui
 
 For accessing the databases through a gui, you can use any client, using the above connection parameters.
